@@ -14,5 +14,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
-});
+    
+    $home_title = 'Entra per visualizzare la tua to do list';
+ 
+    return view('home', compact('home_title'));
+})-> name('home');
+
+Route::get('/about', function () {
+    
+    $data = [
+        'about_title' => 'Ecco cosa devi fare oggi',
+        'list' =>[
+            'Fare la spesa',
+            'Comprare un nuovo libro',
+            'Imparare Laravel',
+            'Andare in palestra'
+        ]
+    ];
+ 
+    return view('about', $data);
+})-> name('about');

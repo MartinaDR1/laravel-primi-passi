@@ -12,42 +12,48 @@
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
-    <title>Laravel</title>
+    <title>Todo-List</title>
 
     <style>
-        body{
+          body{
             font-family: 'Figtree', sans-serif !important;
             background: #ededed;
         }
 
         .card{
-            width: 30rem;
+            width: 20rem;
             margin:auto
         }
-        button{
-            width: 10rem
-        }
+       
     </style>
 </head>
 <body>
-    <header>
+<header>
         <nav class="navbar navbar-expand navbar-light bg-dark ">
             <div class="container">
                 <div class="nav navbar-nav">
                     <a class="nav-item nav-link active text-light" href="{{route('home')}}">Home </a>
-                    <a class="nav-item nav-link text-light" href="{{route('about')}}">ToDo-List</a>
+                    <a class="nav-item nav-link text-light" href="{{route('about')}}">List</a>
                 </div>
             </div>
         </nav>
     </header>
-    <main>
-        <div class="container">
-            <h1 class="text-center my-5">Hello World!</h1>
 
-            <div class="card shadow align-items-center py-5">
-                <h4>{{$home_title}}</h4>
-                <button class="btn btn-dark mt-5"><a href="/about" class="text-decoration-none text-light">Entra</a></button>
+    <main>
+        <div class="container my-5">
+            <h5 class="text-center">{{$about_title}}:</h5>
+            <div class="card shadow p-3 my-5">
+
+                <ul class="align-self-center">
+                    @foreach($list as $item)
+
+                    <li class="py-3 ">{{$item}}</li>
+
+                    @endforeach
+                </ul>
+                
             </div>
+           
         </div>
     </main>
 </body>
